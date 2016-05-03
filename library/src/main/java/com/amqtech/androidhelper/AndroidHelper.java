@@ -1,13 +1,26 @@
 package com.amqtech.androidhelper;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 /**
  * Created by andrew on 5/3/16.
@@ -45,15 +58,111 @@ public class AndroidHelper {
         return bitmap;
     }
 
-    public static int darker(int color, float factor) {
-        int a = Color.alpha(color);
-        int r = Color.red(color);
-        int g = Color.green(color);
-        int b = Color.blue(color);
-
-        return Color.argb(a,
-                Math.max((int) (r * factor), 0),
-                Math.max((int) (g * factor), 0),
-                Math.max((int) (b * factor), 0));
+    public static int darkenColor(int color, float factor) {
+        float[] hsv = new float[3];
+        Color.colorToHSV(color, hsv);
+        hsv[2] *= factor;
+        return Color.HSVToColor(hsv);
     }
-}
+
+    public static int lightenColor(int color, float factor) {
+        float[] hsv = new float[3];
+        Color.colorToHSV(color, hsv);
+        hsv[2] *= -factor;
+        return Color.HSVToColor(hsv);
+    }
+
+    public static void drawToolbar(AppCompatActivity activity, Toolbar toolbar, String title){
+        toolbar.setTitle(title);
+        activity.setSupportActionBar(toolbar);
+    }
+
+    public static void restart(Activity activity) {
+        try {
+            Intent i = activity.getPackageManager().getLaunchIntentForPackage(activity.getPackageName());
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            int mPendingIntentId = 223344;
+            PendingIntent mPendingIntent = PendingIntent.getActivity(activity, mPendingIntentId, i, PendingIntent.FLAG_CANCEL_CURRENT);
+            AlarmManager mgr = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+            mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+            System.exit(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            activity.finish();
+        }
+    }
+
+    public static void fadeImage(final Activity activity, final ImageView imageView, final Bitmap image) {
+        Animation exitAnim = AnimationUtils.loadAnimation(activity, android.R.anim.fade_out);
+        exitAnim.setDuration(150);
+        exitAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override public void onAnimationRepeat(Animation animation) {
+
+            }
+
+            @Override public void onAnimationEnd(Animation animation) {
+                imageView.setImageBitmap(image);
+                Animation enterAnim = AnimationUtils.loadAnimation(activity, android.R.anim.fade_in);
+                enterAnim.setDuration(150);
+                imageView.startAnimation(enterAnim);
+            }
+        });
+        imageView.startAnimation(exitAnim);
+    }
+
+    public static void slideImage(final Activity activity, final ImageView imageView, final Bitmap image) {
+        Animation exitAnim = AnimationUtils.loadAnimation(activity, android.R.anim.slide_out_right);
+        exitAnim.setDuration(150);
+        exitAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override public void onAnimationStart(Animation animation) {
+            }
+
+            @Override public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override public void onAnimationEnd(Animation animation) {
+                imageView.setImageBitmap(image);
+                Animation enterAnim = AnimationUtils.loadAnimation(activity, android.R.anim.slide_in_left);
+                enterAnim.setDuration(150);
+                imageView.startAnimation(enterAnim);
+            }
+        });
+        imageView.startAnimation(exitAnim);
+    }
+
+    @TargetApi(21)
+    public static void circularRevealEnter(View view) {
+        int cx = view.getWidth() / 2;
+        int cy = view.getHeight() / 2;
+
+        float finalRadius = (float) Math.hypot(cx, cy);
+
+        Animator anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadius);
+
+        view.setVisibility(View.VISIBLE);
+        anim.start();
+    }
+
+    @TargetApi(21)
+    public static void circularRevealExit(final View view) {
+        int cx = view.getWidth() / 2;
+        int cy = view.getHeight() / 2;
+
+        float initialRadius = (float) Math.hypot(cx, cy);
+
+        Animator anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, initialRadius, 0);
+
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                view.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        anim.start();
+    }
