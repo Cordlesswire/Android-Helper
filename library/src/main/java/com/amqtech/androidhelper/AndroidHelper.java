@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 /**
  * Created by andrew on 5/3/16.
@@ -54,10 +55,5 @@ public class AndroidHelper {
                 Math.max((int) (r * factor), 0),
                 Math.max((int) (g * factor), 0),
                 Math.max((int) (b * factor), 0));
-    }
-    
-    public static void drawToolbar(Toolbar mToolbar, String title){
-        tb.setTitle(title);
-        setSupportActionBar(mToolbar);
     }
 }
