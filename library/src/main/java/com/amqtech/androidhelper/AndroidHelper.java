@@ -55,4 +55,9 @@ public class AndroidHelper {
                 Math.max((int) (g * factor), 0),
                 Math.max((int) (b * factor), 0));
     }
+    
+    public static void drawToolbar(Toolbar mToolbar, String title){
+        tb.setTitle(title);
+        setSupportActionBar(mToolbar);
+    }
 }
