@@ -1,4 +1,4 @@
-# Android-Helper
+# Android-Helper [![](https://jitpack.io/v/Andrew-Quebe/Android-Helper.svg)](https://jitpack.io/#Andrew-Quebe/Android-Helper)
 A small, simple library providing developers with some utility methods to use in their code.
 
 # Compile in your Project
