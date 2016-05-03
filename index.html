@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Android-Helper by Andrew-Quebe</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Android-Helper</h1>
+        <h2>A small, simple library providing developers with some utility methods to use in their code.</h2>
+        <a href="https://github.com/Andrew-Quebe/Android-Helper" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="android-helper" class="anchor" href="#android-helper" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Android-Helper</h1>
+
+<p>A small, simple library providing developers with some utility methods to use in their code.</p>
+
+<h1>
+<a id="compile-in-your-project" class="anchor" href="#compile-in-your-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compile in your Project</h1>
+
+<p>Add this in your root build.gradle file (not your module build.gradle file):</p>
+
+<pre><code>allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+</code></pre>
+
+<p>Next, add the dependency in your module:</p>
+
+<pre><code>dependencies {
+       compile 'com.github.Andrew-Quebe:Android-Helper:v0.1'
+}
+</code></pre>
+
+<h1>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h1>
+
+<p>Android-Helper currently has a small amount of functions, but that will change as future releases become available. Below are some things you can do with it already.</p>
+
+<h2>
+<a id="toasts" class="anchor" href="#toasts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Toasts</h2>
+
+<p>You can easily show short or long toasts with this code:</p>
+
+<pre><code>// Short Toast
+AndroidHelper.shortToast(getBaseContext(), "Your message");
+
+// Long Toast
+AndroidHelper.longToast(getBaseContext(), "Your message");
+</code></pre>
+
+<h2>
+<a id="convert-drawables-to-bitmaps" class="anchor" href="#convert-drawables-to-bitmaps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Convert Drawables to Bitmaps</h2>
+
+<p>This allows you to convert your drawable resources into Bitmap resources.</p>
+
+<pre><code>AndroidHelper.drawableToBitmap(ResourcesCompat.getDrawable(getResources(), drawable, theme));
+</code></pre>
+
+<h2>
+<a id="dark-versions-of-colors" class="anchor" href="#dark-versions-of-colors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dark Versions of Colors</h2>
+
+<p>This lets you convert your app colors to different shades using float values.</p>
+
+<pre><code>// float value: 0.1 = 10%, 0.9 = 90%
+AndroidHelper.darker(Color.parseColor("#FFFFFF"), 0.8f);
+</code></pre>
+
+<h1>
+<a id="contributions" class="anchor" href="#contributions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributions</h1>
+
+<p>If you'd like to contribute to this library, feel free to make a pull request with your changes. </p>
+
+<h1>
+<a id="developed-by" class="anchor" href="#developed-by" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Developed By</h1>
+
+<p>Andrew Quebe<br>
+<a href="mailto:andrewquebe@amqtech.com">andrewquebe@amqtech.com</a></p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+
+<pre><code>Copyright 2016 Andrew Quebe
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/Andrew-Quebe/Android-Helper/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/Andrew-Quebe/Android-Helper/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/Andrew-Quebe/Android-Helper"></a> is maintained by <a href="https://github.com/Andrew-Quebe">Andrew-Quebe</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
