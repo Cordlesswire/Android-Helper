@@ -54,8 +54,7 @@ AndroidHelper.darker(Color.parseColor("#FFFFFF"), 0.8f);
 If you'd like to contribute to this library, feel free to make a pull request with your changes. 
 
 # Developed By
-Andrew Quebe
-
+Andrew Quebe<br>
 [andrewquebe@amqtech.com](mailto:andrewquebe@amqtech.com)
 
 # License
