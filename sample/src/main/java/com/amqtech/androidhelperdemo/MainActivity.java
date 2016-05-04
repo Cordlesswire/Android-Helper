@@ -1,9 +1,9 @@
 package com.amqtech.androidhelperdemo;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.amqtech.androidhelper.AndroidHelper;
 
@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
         AndroidHelper.drawableToBitmap(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_add_white_24dp, null));
 
         // Shade a color to make it darker (float value: 0.1 = 10%, 0.9 = 90%)
-        AndroidHelper.darker(Color.parseColor("#FFFFFF"), 0.8f);
+        AndroidHelper.darkenColor(Color.parseColor("#FFFFFF"), 0.8f);
+
+        // Shade a color to make it lighter (float value: 0.1 = 10%, 0.9 = 90%)
+        AndroidHelper.lightenColor(Color.parseColor("#FFFFFF"), 0.8f);
     }
 }

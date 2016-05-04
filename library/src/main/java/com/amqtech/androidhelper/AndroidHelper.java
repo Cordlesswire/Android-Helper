@@ -27,14 +27,30 @@ import android.widget.Toast;
  */
 public class AndroidHelper {
 
+    /**
+     * Displays a short toast wherever the method is called.
+     *
+     * @param mContext application context.
+     * @param message  your message.
+     */
     public static void shortToast(Context mContext, String message) {
         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Displays a long tast wherever the method is called.
+     * @param mContext application context.
+     * @param message your message.
+     */
     public static void longToast(Context mContext, String message) {
         Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * Converts a drawable to a bitmap image.
+     * @param drawable instance of a drawable resource.
+     * @return bitmap image.
+     */
     public static Bitmap drawableToBitmap(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
             return ((BitmapDrawable) drawable).getBitmap();
@@ -58,6 +74,12 @@ public class AndroidHelper {
         return bitmap;
     }
 
+    /**
+     * Darkens a color based on the float value entered.
+     * @param color your color int.
+     * @param factor 0.1 = 90% dark; 0.9 = 10% dark.
+     * @return Color int.
+     */
     public static int darkenColor(int color, float factor) {
         float[] hsv = new float[3];
         Color.colorToHSV(color, hsv);
@@ -65,6 +87,12 @@ public class AndroidHelper {
         return Color.HSVToColor(hsv);
     }
 
+    /**
+     * Lightens a color based on the float value entered.
+     * @param color your color int.
+     * @param factor 0.1 = 10% light; 0.9 = 90% light.
+     * @return Color int.
+     */
     public static int lightenColor(int color, float factor) {
         float[] hsv = new float[3];
         Color.colorToHSV(color, hsv);
@@ -72,11 +100,21 @@ public class AndroidHelper {
         return Color.HSVToColor(hsv);
     }
 
+    /**
+     * Draws a toolbar in the appropriate place programmatically.
+     * @param activity the activity you want to display the toolbar on.
+     * @param toolbar your toolbar.
+     * @param title the toolbar title.
+     */
     public static void drawToolbar(AppCompatActivity activity, Toolbar toolbar, String title) {
         toolbar.setTitle(title);
         activity.setSupportActionBar(toolbar);
     }
 
+    /**
+     * Restarts an activity wherever the method is run.
+     * @param activity activity to be restarted.
+     */
     public static void restart(Activity activity) {
         try {
             Intent i = activity.getPackageManager().getLaunchIntentForPackage(activity.getPackageName());
@@ -92,6 +130,12 @@ public class AndroidHelper {
         }
     }
 
+    /**
+     *
+     * @param activity
+     * @param imageView
+     * @param image
+     */
     public static void fadeImage(final Activity activity, final ImageView imageView, final Bitmap image) {
         Animation exitAnim = AnimationUtils.loadAnimation(activity, android.R.anim.fade_out);
         exitAnim.setDuration(150);
@@ -117,6 +161,12 @@ public class AndroidHelper {
         imageView.startAnimation(exitAnim);
     }
 
+    /**
+     *
+     * @param activity
+     * @param imageView
+     * @param image
+     */
     public static void slideImage(final Activity activity, final ImageView imageView, final Bitmap image) {
         Animation exitAnim = AnimationUtils.loadAnimation(activity, android.R.anim.slide_out_right);
         exitAnim.setDuration(150);
@@ -140,6 +190,10 @@ public class AndroidHelper {
         imageView.startAnimation(exitAnim);
     }
 
+    /**
+     *
+     * @param view
+     */
     @TargetApi(21)
     public static void circularRevealEnter(View view) {
         int cx = view.getWidth() / 2;
@@ -153,6 +207,10 @@ public class AndroidHelper {
         anim.start();
     }
 
+    /**
+     *
+     * @param view
+     */
     @TargetApi(21)
     public static void circularRevealExit(final View view) {
         int cx = view.getWidth() / 2;
