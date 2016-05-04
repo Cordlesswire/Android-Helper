@@ -72,7 +72,7 @@ public class AndroidHelper {
         return Color.HSVToColor(hsv);
     }
 
-    public static void drawToolbar(AppCompatActivity activity, Toolbar toolbar, String title){
+    public static void drawToolbar(AppCompatActivity activity, Toolbar toolbar, String title) {
         toolbar.setTitle(title);
         activity.setSupportActionBar(toolbar);
     }
@@ -96,15 +96,18 @@ public class AndroidHelper {
         Animation exitAnim = AnimationUtils.loadAnimation(activity, android.R.anim.fade_out);
         exitAnim.setDuration(150);
         exitAnim.setAnimationListener(new Animation.AnimationListener() {
-            @Override public void onAnimationStart(Animation animation) {
+            @Override
+            public void onAnimationStart(Animation animation) {
 
             }
 
-            @Override public void onAnimationRepeat(Animation animation) {
+            @Override
+            public void onAnimationRepeat(Animation animation) {
 
             }
 
-            @Override public void onAnimationEnd(Animation animation) {
+            @Override
+            public void onAnimationEnd(Animation animation) {
                 imageView.setImageBitmap(image);
                 Animation enterAnim = AnimationUtils.loadAnimation(activity, android.R.anim.fade_in);
                 enterAnim.setDuration(150);
@@ -118,13 +121,16 @@ public class AndroidHelper {
         Animation exitAnim = AnimationUtils.loadAnimation(activity, android.R.anim.slide_out_right);
         exitAnim.setDuration(150);
         exitAnim.setAnimationListener(new Animation.AnimationListener() {
-            @Override public void onAnimationStart(Animation animation) {
+            @Override
+            public void onAnimationStart(Animation animation) {
             }
 
-            @Override public void onAnimationRepeat(Animation animation) {
+            @Override
+            public void onAnimationRepeat(Animation animation) {
             }
 
-            @Override public void onAnimationEnd(Animation animation) {
+            @Override
+            public void onAnimationEnd(Animation animation) {
                 imageView.setImageBitmap(image);
                 Animation enterAnim = AnimationUtils.loadAnimation(activity, android.R.anim.slide_in_left);
                 enterAnim.setDuration(150);
@@ -166,3 +172,4 @@ public class AndroidHelper {
 
         anim.start();
     }
+}
