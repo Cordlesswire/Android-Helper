@@ -17,7 +17,7 @@ Next, add the dependency in your module:
 
 ```
 dependencies {
-	   compile 'com.github.Andrew-Quebe:Android-Helper:v0.1'
+	   compile 'com.github.Andrew-Quebe:Android-Helper:v0.2.1'
 }
 ````
 
