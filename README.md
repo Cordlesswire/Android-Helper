@@ -50,6 +50,9 @@ This lets you convert your app colors to different shades using float values.
 AndroidHelper.darker(Color.parseColor("#FFFFFF"), 0.8f);
 ```
 
+# Java Documentation
+If you would like to view the Javadocs for this library, [click here.](https://cdn.rawgit.com/Andrew-Quebe/Android-Helper/master/javadoc/index.html)
+
 # Contributions
 If you'd like to contribute to this library, feel free to make a pull request with your changes. 
 
