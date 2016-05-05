@@ -23,7 +23,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
- * Created by andrew on 5/3/16.
+ * A Java class that provides some basic methods for doing specific things in Android.
+ * Designed to be light weight and easy to use for developers.
  * @author Andrew Quebe
  */
 public class AndroidHelper {
