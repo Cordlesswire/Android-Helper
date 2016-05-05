@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 /**
  * Created by andrew on 5/3/16.
+ * @author Andrew Quebe
  */
 public class AndroidHelper {
 
@@ -131,10 +132,10 @@ public class AndroidHelper {
     }
 
     /**
-     *
-     * @param activity
-     * @param imageView
-     * @param image
+     * Fades an imageview.
+     * @param activity your activity.
+     * @param imageView your imageview.
+     * @param image the image you want to fade.
      */
     public static void fadeImage(final Activity activity, final ImageView imageView, final Bitmap image) {
         Animation exitAnim = AnimationUtils.loadAnimation(activity, android.R.anim.fade_out);
@@ -162,10 +163,10 @@ public class AndroidHelper {
     }
 
     /**
-     *
-     * @param activity
-     * @param imageView
-     * @param image
+     * Slides an image off to the right.
+     * @param activity your activity.
+     * @param imageView your imageview.
+     * @param image the image you want to slide.
      */
     public static void slideImage(final Activity activity, final ImageView imageView, final Bitmap image) {
         Animation exitAnim = AnimationUtils.loadAnimation(activity, android.R.anim.slide_out_right);
@@ -191,8 +192,8 @@ public class AndroidHelper {
     }
 
     /**
-     *
-     * @param view
+     * Creates a material style circular reveal entrance animation similar to the one in Google Play.
+     * @param view your view.
      */
     @TargetApi(21)
     public static void circularRevealEnter(View view) {
@@ -208,8 +209,8 @@ public class AndroidHelper {
     }
 
     /**
-     *
-     * @param view
+     * Creates a material style circular reveal exit animation similar to the one in Google Play.
+     * @param view your view.
      */
     @TargetApi(21)
     public static void circularRevealExit(final View view) {
