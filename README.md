@@ -1,4 +1,4 @@
-# Android-Helper [![](https://jitpack.io/v/com.amqtech/Android-Helper.svg)](https://jitpack.io/#com.amqtech/Android-Helper)
+# Android-Helper [![](https://jitpack.io/v/Andrew-Quebe/Android-Helper.svg)](https://jitpack.io/#Andrew-Quebe/Android-Helper)
 A small, simple library providing developers with some utility methods to use in their code.
 
 # Compile in your Project
@@ -17,7 +17,7 @@ Next, add the dependency in your module:
 
 ```
 dependencies {
-	   compile 'com.github.Andrew-Quebe:Android-Helper:v0.2.1'
+	   compile 'com.github.Andrew-Quebe:Android-Helper:v0.3'
 }
 ````
 
